@@ -59,14 +59,14 @@ const App = () => {
           </header>
 
          
-          <div className="flex flex-col dark:bg-gray-900 w-full p-1 rounded-lg shadow-2xl text-lg">
+          <div className="flex flex-col dark:bg-gray-900 w-full p-1 rounded-lg shadow-2xl text-lg overflow-hidden">
             <For each={tasks()}> 
             { (task) =>
               <div className="flex flex-row items-center gap-2 px-3 py-2">
                 <Switch>
                   <Match when={edit() === false}>
                     <div onClick={[toggleTask, task.id]} className={`p-2 rounded-full border ${task.state ? 'bg-blue-500 border-blue-500' : 'border-gray-600'}`}></div>
-                    <div>{task.name}</div>
+                    <div className="break-all">{task.name}</div>
                   </Match>
                   <Match when={edit() === true}>
                     <button onClick={[deleteTask, task.id]} className='text-red-400'> <DeleteIcon /> </button>
